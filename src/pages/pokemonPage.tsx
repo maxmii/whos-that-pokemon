@@ -1,10 +1,11 @@
 import type { ReactElement } from 'react';
-import { getPokemonHook } from '../hooks/getPokemonHook';
+import { useState } from 'react';
+import { usePokemonHook } from '../hooks/getPokemonHook';
 import getRandomPokemonId from '../utils/random-pokemon';
 
 function PokemonPage(): ReactElement {
-  const pokemonId = getRandomPokemonId();
-  const { pokemon, loading, error } = getPokemonHook(pokemonId);
+  const [pokemonId] = useState(() => getRandomPokemonId());
+  const { pokemon, loading, error } = usePokemonHook(pokemonId);
 
   return (
     <div>

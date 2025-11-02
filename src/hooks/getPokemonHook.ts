@@ -6,7 +6,7 @@ import {
 } from '../api/pokemon-api.ts';
 import { mapPokemonData } from '../mappers/pokemonMapper.ts';
 
-export const getPokemonHook = (pokemonId: number) => {
+export const usePokemonHook = (pokemonId: number) => {
   const [pokemon, setPokemon] = useState<IPokemon | null>(null);
   const [loading, setLoading] = useState<boolean>(true);
   const [error, setError] = useState<string | null>(null);
@@ -46,7 +46,7 @@ export const getPokemonHook = (pokemonId: number) => {
     return () => {
       isMounted = false;
     };
-  }, []);
+  }, [pokemonId]);
 
   return { pokemon, loading, error };
 };
