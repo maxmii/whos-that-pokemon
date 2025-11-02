@@ -1,3 +1,7 @@
+import reactHooks from 'eslint-plugin-react-hooks';
+import reactRefresh from 'eslint-plugin-react-refresh';
+import globals from 'globals';
+
 module.exports = {
   root: true,
   env: { browser: true, es2020: true },
@@ -6,13 +10,21 @@ module.exports = {
     'plugin:@typescript-eslint/recommended',
     'plugin:react-hooks/recommended',
   ],
+  languageOptions: {
+    ecmaVersion: 2020,
+    globals: globals.browser,
+  },
   ignorePatterns: ['dist', '.eslintrc.cjs'],
   parser: '@typescript-eslint/parser',
-  plugins: ['react-refresh'],
+  plugins: {
+    'react-hooks': reactHooks,
+    'react-refresh': reactRefresh,
+  },
   rules: {
+    ...reactHooks.configs.recommended.rules,
     'react-refresh/only-export-components': [
       'warn',
       { allowConstantExport: true },
     ],
   },
-}
+};
