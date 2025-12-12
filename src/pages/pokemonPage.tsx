@@ -2,10 +2,13 @@ import type { ReactElement } from 'react';
 import { useState } from 'react';
 import { usePokemonHook } from '../hooks/getPokemonHook';
 import getRandomPokemonId from '../utils/random-pokemon';
+import getRandomDescription from '../utils/random-description.ts';
 
 function PokemonPage(): ReactElement {
   const [pokemonId] = useState(() => getRandomPokemonId());
   const { pokemon, loading, error } = usePokemonHook(pokemonId);
+
+  const randomDescription = getRandomDescription(pokemon?.descriptions);
 
   return (
     <div>
@@ -21,7 +24,7 @@ function PokemonPage(): ReactElement {
         </div>
       )}
 
-      {!loading && !error && !pokemon && (
+      {!loading && !error && !pokemon && !randomDescription && (
         <div>
           <p>No pokemon found</p>
         </div>
@@ -29,7 +32,7 @@ function PokemonPage(): ReactElement {
 
       {pokemon && (
         <div>
-          <h1>{pokemon.name}</h1>
+          <p>{randomDescription}</p>
         </div>
       )}
     </div>
