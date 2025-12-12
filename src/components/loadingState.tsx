@@ -1,5 +1,7 @@
 export function LoadingState() {
-  <div>
-    <p>Loading...</p>
-  </div>;
+  return (
+    <>
+      <p>Loading...</p>
+    </>
+  );
 }

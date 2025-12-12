@@ -1,5 +1,7 @@
-export function ErrorState(error: string) {
-  <div>
-    <p>Error: {error}</p>
-  </div>;
+export function ErrorState({ error }: { error: string | null }) {
+  return (
+    <>
+      <p>Error: {error}</p>
+    </>
+  );
 }
