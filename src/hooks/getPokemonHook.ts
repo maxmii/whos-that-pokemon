@@ -3,7 +3,7 @@ import { useEffect, useState } from 'react';
 import {
   fetchPokemonSpeciesById,
   fetchPokemonTypesById,
-} from '../api/pokemon-api.ts';
+} from '../api/pokemonApi.ts';
 import { mapPokemonData } from '../mappers/pokemonMapper.ts';
 
 export const usePokemonHook = (pokemonId: number) => {
