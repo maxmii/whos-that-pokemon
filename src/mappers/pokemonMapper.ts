@@ -14,6 +14,13 @@ export function mapPokemonData(
         (entry: Pokedex.PokemonSpeciesFlavorTextEntry) =>
           entry.language.name === 'en'
       )
-      .map((entry: Pokedex.PokemonSpeciesFlavorTextEntry) => entry.flavor_text),
+      .map((entry: Pokedex.PokemonSpeciesFlavorTextEntry) =>
+        redactPokemonInfo(pokemonData.name, entry.flavor_text)
+      ),
   };
+}
+
+function redactPokemonInfo(pokemonName: string, info: string) {
+  const regex = new RegExp(pokemonName, 'gi');
+  return info.replace(regex, '[redacted]');
 }

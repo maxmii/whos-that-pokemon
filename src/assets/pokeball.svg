@@ -1,0 +1,19 @@
+<svg width="200" height="200" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+  <!-- Red top half -->
+  <path d="M 100 10 A 90 90 0 0 1 190 100 L 10 100 A 90 90 0 0 1 100 10" fill="#EE1515"/>
+  
+  <!-- White bottom half -->
+  <path d="M 100 190 A 90 90 0 0 1 10 100 L 190 100 A 90 90 0 0 1 100 190" fill="#F5F5F5"/>
+  
+  <!-- Black middle band -->
+  <rect x="0" y="90" width="200" height="20" fill="#222"/>
+  
+  <!-- White center circle -->
+  <circle cx="100" cy="100" r="30" fill="#F5F5F5" stroke="#222" stroke-width="6"/>
+  
+  <!-- Inner circle detail -->
+  <circle cx="100" cy="100" r="15" fill="none" stroke="#222" stroke-width="4"/>
+  
+  <!-- Outer black border -->
+  <circle cx="100" cy="100" r="90" fill="none" stroke="#222" stroke-width="8"/>
+</svg>
